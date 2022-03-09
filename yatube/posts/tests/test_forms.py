@@ -94,7 +94,7 @@ class PostFormTests(TestCase):
             title='new_group',
             slug='slug_new_group',
             description='Описание new_group'
-            )
+        )
         post_count = Post.objects.count()
         form_data = {
             'text': 'Новое Редактирование текста',
@@ -132,14 +132,13 @@ class PostFormTests(TestCase):
         response = self.authorized_client.post(reverse(
             'posts:add_comment', kwargs={'post_id': self.post.id}),
                 data=form_data,
-                follow=True)
-        self.assertRedirects(
-            response,
-            reverse(
-                'posts:post_detail', kwargs={
-                    'post_id': self.post.id
-                    }
-            )
+                follow=True
+        )
+        self.assertRedirects(response, reverse(
+            'posts:post_detail', kwargs={
+                'post_id': self.post.id
+                }
+        )
         )
         response_1 = self.guest_client.post(
             reverse(
