@@ -130,14 +130,15 @@ class PostFormTests(TestCase):
             'author': self.user
         }
         response = self.authorized_client.post(reverse(
-            'posts:add_comment', kwargs={'post_id': self.post.id}),
+            'posts:add_comment', kwargs={
+                'post_id': self.post.id}),
                 data=form_data,
                 follow=True
         )
         self.assertRedirects(response, reverse(
             'posts:post_detail', kwargs={
                 'post_id': self.post.id
-                }
+            }
         )
         )
         response_1 = self.guest_client.post(
