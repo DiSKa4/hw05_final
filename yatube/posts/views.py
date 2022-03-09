@@ -56,10 +56,8 @@ def post_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     form = CommentForm()
     comments = Comment.objects.select_related(
-        'author'
-        ).filter(
-            post__id=post_id
-        )
+        'author').filter(
+            post__id=post_id)
     context = {
         'post': post,
         'comments': comments,
