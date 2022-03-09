@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Подписки{% endblock %}
+{% block content %}
+{% include 'includes/switcher.html' %}
+  {% for post in page_obj %}    
+  {{ post.text }}
+    {% if not forloop.last %}<hr>{% endif %}
+  {% endfor %}
+  {% include 'includes/paginator.html' %}
+{% endblock %}
