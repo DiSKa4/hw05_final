@@ -112,8 +112,11 @@ class PostPagesTests(TestCase):
     def test_cache_index(self):
         response = self.authorized_client.get(reverse('posts:index'))
         resp_1 = response.content
-        post_del = Post.objects.get(id=1)
-        post_del.delete()
+        self.post2 = Post.objects.create(
+            text='Тестовый пост 2',
+            author=self.user,
+            group=self.group
+        )
         response_2 = self.authorized_client.get(reverse('posts:index'))
         resp_2 = response_2.content
         self.assertTrue(resp_1 == resp_2)

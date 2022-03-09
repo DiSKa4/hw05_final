@@ -166,6 +166,11 @@ class PostFormTests(TestCase):
         )
         self.assertRedirects(response, f'/profile/{self.user}/')
         self.assertEqual(Follow.objects.count(), 1)
+
+    def test_auth_unfollow(self):
+        new_user = User.objects.create_user(username='new_user')
+        self.authorized_client.force_login(new_user)
+        Follow.objects.create(user=new_user, author=self.user)
         response_1 = self.authorized_client.post(
             reverse('posts:profile_unfollow', args=(self.user,))
         )
