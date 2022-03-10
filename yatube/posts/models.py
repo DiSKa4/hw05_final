@@ -72,4 +72,8 @@ class Follow(models.Model):
         on_delete=models.CASCADE,
         related_name='follower'
     )
-    UniqueConstraint(fields=['author', 'user'], name='unique_follow')
+
+    class Meta:
+        constraints = [
+            UniqueConstraint(fields=['author', 'user'], name='unique_follow')
+        ]
