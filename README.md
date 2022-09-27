@@ -16,7 +16,7 @@
 ## 2. Команды для запуска
 ### Перед запуском необходимо склонировать проект:
 
-    git clone (https://github.com/DiSKa4/hw05_final.git)
+    git clone https://github.com/DiSKa4/hw05_final.git
 
 ### Cоздать и активировать виртуальное окружение:
 
