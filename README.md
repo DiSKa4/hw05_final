@@ -1,3 +1,44 @@
-# hw05_final
+# Социальная сеть Yatube
 
-[![CI](https://github.com/yandex-praktikum/hw05_final/actions/workflows/python-app.yml/badge.svg?branch=master)](https://github.com/yandex-praktikum/hw05_final/actions/workflows/python-app.yml)
+## 1. Описание
+Проект cоциальной сети Yatube разработан по MVT архитектуре.
+Написаны тесты для проверки работы сервиса (pytest).
+
+## В проекте реализованы следующие возможности:
+
+регистрация, авторизация с верификацией
+публикация статей (текст, картинка)
+комментирование записей других пользователей
+подписка на авторов статей
+смена и восстановление пароля через почту
+пагинация
+кеширование страниц
+## 2. Команды для запуска
+### Перед запуском необходимо склонировать проект:
+
+    git clone [https://github.com/Bercut38/hw05_final.git](https://github.com/DiSKa4/hw05_final.git)
+
+### Cоздать и активировать виртуальное окружение:
+
+    python -m venv venv
+    Windows: source venv/Scripts/activate
+
+### И установить зависимости из файла requirements.txt:
+
+    python3 -m pip install --upgrade pip
+    pip install -r requirements.txt
+    
+### Выполнить миграции:
+
+    python3 manage.py migrate
+
+### Запустить проект:
+
+    python3 manage.py runserver
+    
+Теперь доступность проекта можно проверить по адресу http://localhost/admin/
+
+3. Техническая информация
+Стек технологий: Python 3, Django, pytest.
+
+## Автор: Андрей Алексеевич.
